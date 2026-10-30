@@ -1,0 +1,9 @@
+# 由 gh_push.py 生成
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.log.lock

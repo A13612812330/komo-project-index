@@ -1,0 +1,412 @@
+[
+ {
+  "name": "openclaw-requirements",
+  "url": "https://github.com/A13612812330/openclaw-requirements",
+  "private": false,
+  "size": 226456,
+  "pushed": "2026-10-30",
+  "desc": "Openclaw 环境依赖安装包归档：Git / Node 20-24 / Python 3.11 / openclaw-main 源码包",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "gamenews-snapshots",
+  "url": "https://github.com/A13612812330/gamenews-snapshots",
+  "private": true,
+  "size": 130772,
+  "pushed": "2026-10-30",
+  "desc": "GameNews 周榜快照归档（31 天 6405 个快照）+ 爬虫与简报数据",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "novel-archive",
+  "url": "https://github.com/A13612812330/novel-archive",
+  "private": true,
+  "size": 52909,
+  "pushed": "2026-10-30",
+  "desc": "小说创作归档：原创《双穿：我在高武能修仙》《高武：我能掠夺诸天武道》+ 参考文 + InkAI",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "gameops-bulk-import",
+  "url": "https://github.com/A13612812330/gameops-bulk-import",
+  "private": true,
+  "size": 32403,
+  "pushed": "2026-10-30",
+  "desc": "游戏后台批量导入工具（启动器资源 + node 运行时）",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "komo-misc-archive",
+  "url": "https://github.com/A13612812330/komo-misc-archive",
+  "private": false,
+  "size": 11897,
+  "pushed": "2026-10-30",
+  "desc": "Komo 杂项归档：企划书 / 解包工具 / Temu / Codex 技能触发词 / 数据库结构导出 / 各类 xlsx",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "codex-session-archive",
+  "url": "https://github.com/A13612812330/codex-session-archive",
+  "private": true,
+  "size": 9449,
+  "pushed": "2026-10-30",
+  "desc": "Codex + WorkBuddy 会话记录归档（含索引页与会话数据）",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "gamenews-env-secrets",
+  "url": "https://github.com/A13612812330/gamenews-env-secrets",
+  "private": true,
+  "size": 6720,
+  "pushed": "2026-10-30",
+  "desc": "GameNewsUnified 环境变量备份 + WX-News-Wiki 候选批次数据（含密钥，务必保持私有）",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "newgamewiki-data",
+  "url": "https://github.com/A13612812330/newgamewiki-data",
+  "private": true,
+  "size": 5748,
+  "pushed": "2026-10-30",
+  "desc": "NewgameWiki 数据快照（current.json 等 13 个文件）",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "komo-market-dashboard-data",
+  "url": "https://github.com/A13612812330/komo-market-dashboard-data",
+  "private": true,
+  "size": 5190,
+  "pushed": "2026-10-30",
+  "desc": "Market Dashboard 运行数据（含飞书/钉钉应用配置，私密）",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "komo-convert-dist",
+  "url": "https://github.com/A13612812330/komo-convert-dist",
+  "private": true,
+  "size": 0,
+  "pushed": "2026-10-30",
+  "desc": "Komo-Convert 发行包归档（installer payload + vendor 依赖）；KomoConvert.exe 与 avfilter-12.dll 见 Release 附件",
+  "group": "归档 · 2026-10-30 上传",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "GameNews",
+  "url": "https://github.com/A13612812330/GameNews",
+  "private": false,
+  "size": 214189,
+  "pushed": "2026-10-29",
+  "desc": "中文游戏资讯采集、简讯编辑、日报周报海报生成与飞书投递工具",
+  "group": "游戏资讯与聚合",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "game-aggregator",
+  "url": "https://github.com/A13612812330/game-aggregator",
+  "private": false,
+  "size": 147721,
+  "pushed": "2026-10-29",
+  "desc": "单机游戏信息聚合站：聚合机地与 XDGAME 的游戏库、MOD、存档、修改器与手机模拟器配置。只做信息，不托管游戏文件。",
+  "group": "游戏资讯与聚合",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "NewgameWiki",
+  "url": "https://github.com/A13612812330/NewgameWiki",
+  "private": false,
+  "size": 2372,
+  "pushed": "2026-10-29",
+  "desc": "本地优先的游戏资讯与排期管理工具",
+  "group": "游戏资讯与聚合",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "H5Game",
+  "url": "https://github.com/A13612812330/H5Game",
+  "private": true,
+  "size": 21347,
+  "pushed": "2026-10-29",
+  "desc": "H5 小游戏合集与打包产物（源码，release 构建物除外）",
+  "group": "游戏开发与工具",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "H5Game-SlotRoguelike",
+  "url": "https://github.com/A13612812330/H5Game-SlotRoguelike",
+  "private": true,
+  "size": 10437,
+  "pushed": "2026-10-29",
+  "desc": "Slotbound-inspired pixel H5 roguelike with Kingdom Rush-style technology tree.",
+  "group": "游戏开发与工具",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "Agnes-vampire-survivors-wiki-tool",
+  "url": "https://github.com/A13612812330/Agnes-vampire-survivors-wiki-tool",
+  "private": true,
+  "size": 8459,
+  "pushed": "2026-10-29",
+  "desc": "吸血鬼幸存者 Wiki 数据导出与翻译工具",
+  "group": "游戏开发与工具",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "GH-GameSearch",
+  "url": "https://github.com/A13612812330/GH-GameSearch",
+  "private": false,
+  "size": 962,
+  "pushed": "2026-10-28",
+  "desc": "",
+  "group": "游戏开发与工具",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "GH-Game-Puton",
+  "url": "https://github.com/A13612812330/GH-Game-Puton",
+  "private": false,
+  "size": 151,
+  "pushed": "2026-10-28",
+  "desc": "Windows game admin batch import tool with portable release",
+  "group": "游戏开发与工具",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "GH-GameSearch-Prototype",
+  "url": "https://github.com/A13612812330/GH-GameSearch-Prototype",
+  "private": true,
+  "size": 103,
+  "pushed": "2026-10-28",
+  "desc": "Archive of the pre-repository GH-GameSearch prototype workspace (Android app + chrome test extension + early data probes)",
+  "group": "游戏开发与工具",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "endgame-weekly-report",
+  "url": "https://github.com/A13612812330/endgame-weekly-report",
+  "private": false,
+  "size": 1859,
+  "pushed": "2026-10-27",
+  "desc": "端游三源（搜索/云游戏下载/SteamDB）周报归档 · 按产出日期分目录，含在线看板",
+  "group": "端游周报",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "REA-Skill",
+  "url": "https://github.com/A13612812330/REA-Skill",
+  "private": false,
+  "size": 83830,
+  "pushed": "2026-10-29",
+  "desc": "面向获授权应用与游戏的通用逆向/反编译 Skill：代码恢复、功能追踪、数值资源整理与证据验证；Slotbound Demo 为案例子项目。",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "okcs2-monitor-suite",
+  "url": "https://github.com/A13612812330/okcs2-monitor-suite",
+  "private": true,
+  "size": 14916,
+  "pushed": "2026-10-29",
+  "desc": "本地监控与数据归档：采集已授权的普通开箱、对战、巅峰极速与指数盲盒响应，提供历史分析、SQLite 快照和跨电脑恢复。",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "Komoyou-Skill-WorkBuddy",
+  "url": "https://github.com/A13612812330/Komoyou-Skill-WorkBuddy",
+  "private": true,
+  "size": 6592,
+  "pushed": "2026-10-19",
+  "desc": "WorkBuddy 技能合集与 Komo 专家包，提供中文口语路由、项目流程和 REA 应用与游戏逆向研究入口；与 Codex 版 Komoyou-Skill 配套维护。",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "Komoyou-Skill",
+  "url": "https://github.com/A13612812330/Komoyou-Skill",
+  "private": true,
+  "size": 2989,
+  "pushed": "2026-10-29",
+  "desc": "面向中文口语需求的 Codex 技能合集与总控入口，覆盖技能路由、项目流程，以及 REA 应用与游戏逆向研究。",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "pm-workbench",
+  "url": "https://github.com/A13612812330/pm-workbench",
+  "private": true,
+  "size": 1623,
+  "pushed": "2026-10-19",
+  "desc": "本地优先的项目管理、任务看板、服务监控与启动器管理平台。",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "Market-dashboard",
+  "url": "https://github.com/A13612812330/Market-dashboard",
+  "private": true,
+  "size": 1371,
+  "pushed": "2026-10-19",
+  "desc": "本地优先的 A 股与 ETF 行情、研究、自选和模拟交易工作台。",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "Komo-Convert",
+  "url": "https://github.com/A13612812330/Komo-Convert",
+  "private": true,
+  "size": 1298,
+  "pushed": "2026-10-28",
+  "desc": "Komo Convert：本地优先的 Windows 通用工具箱，统一接入文件转换、游戏加速、APK 启动器、种子下载与自定义应用启动器。",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "codex-migration-pack",
+  "url": "https://github.com/A13612812330/codex-migration-pack",
+  "private": true,
+  "size": 280,
+  "pushed": "2026-10-29",
+  "desc": "Codex 配置与技能迁移包",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "Daily-points-claimer",
+  "url": "https://github.com/A13612812330/Daily-points-claimer",
+  "private": false,
+  "size": 9,
+  "pushed": "2026-09-17",
+  "desc": "在已登录的 WorkBuddy 和 TraeWork 应用中，通过 Windows 桌面自动化领取每日积分。",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "komo-agent-skill",
+  "url": "https://github.com/A13612812330/komo-agent-skill",
+  "private": false,
+  "size": 5,
+  "pushed": "2026-10-29",
+  "desc": "面向中文口语需求的 Codex 技能路由入口：一句话把任务分派到最合适的已装技能/插件/MCP",
+  "group": "AI 技能与工作台",
+  "owner": "A13612812330"
+ },
+ {
+  "name": "GH-GameNews",
+  "url": "https://github.com/GHZS-Project/GH-GameNews",
+  "private": false,
+  "size": 181156,
+  "pushed": "2026-10-26",
+  "desc": "中文游戏资讯采集、今日简讯、日报/周报海报与飞书投递工具",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-Gamehub",
+  "url": "https://github.com/GHZS-Project/GH-Gamehub",
+  "private": false,
+  "size": 53488,
+  "pushed": "2026-10-26",
+  "desc": "GH-Gamehub：机地与 XDGAME 的游戏库、MOD、存档、修改器与手机模拟器配置聚合站。只做信息聚合，不托管游戏文件。",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-GameGather-UPSTREAM",
+  "url": "https://github.com/GHZS-Project/GH-GameGather-UPSTREAM",
+  "private": false,
+  "size": 25622,
+  "pushed": "2026-10-26",
+  "desc": "GH-GameGather APP 的配套数据服务（Express + 93.6 MB JSON 索引快照）。主项目：https://github.com/A13612812330/GH-GameGather-APP",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-GameGather-APP",
+  "url": "https://github.com/GHZS-Project/GH-GameGather-APP",
+  "private": false,
+  "size": 3652,
+  "pushed": "2026-10-26",
+  "desc": "PC / 手游情报站 + 资源索引 + aria2 下载管理 + Electron 桌面成品。只想直接用：Releases 下 262 MB 成品包，整个解压后双击 GameIntel.exe。只做索引，不托管游戏文件。",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-CloudGame",
+  "url": "https://github.com/GHZS-Project/GH-CloudGame",
+  "private": false,
+  "size": 2708,
+  "pushed": "2026-10-27",
+  "desc": "端游云游戏三源周报 · 可复刻工程仓库（脚本/词库/口径/历史产出）",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-Handover",
+  "url": "https://github.com/GHZS-Project/GH-Handover",
+  "private": false,
+  "size": 999,
+  "pushed": "2026-10-26",
+  "desc": "GH 系列项目交接总入口：10 个仓库索引、可用性实测、可复制的 AI Agent prompt",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-GameSearch",
+  "url": "https://github.com/GHZS-Project/GH-GameSearch",
+  "private": false,
+  "size": 963,
+  "pushed": "2026-10-28",
+  "desc": "",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-NewGameWIki",
+  "url": "https://github.com/GHZS-Project/GH-NewGameWIki",
+  "private": false,
+  "size": 338,
+  "pushed": "2026-10-26",
+  "desc": "NewgameWiki game news, schedule and management workflow",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-Game-Puton",
+  "url": "https://github.com/GHZS-Project/GH-Game-Puton",
+  "private": false,
+  "size": 152,
+  "pushed": "2026-10-28",
+  "desc": "Windows game admin batch import tool with portable release",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-WeeklyReport",
+  "url": "https://github.com/GHZS-Project/GH-WeeklyReport",
+  "private": false,
+  "size": 111,
+  "pushed": "2026-10-26",
+  "desc": "",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ },
+ {
+  "name": "GH-KomoSkill",
+  "url": "https://github.com/GHZS-Project/GH-KomoSkill",
+  "private": false,
+  "size": 60,
+  "pushed": "2026-10-26",
+  "desc": "[能力] 可复刻的 AI 协作工作法：六阶段门禁 + 证据纪律 + 防失忆",
+  "group": "组织仓库 · GHZS-Project",
+  "owner": "GHZS-Project"
+ }
+]
