@@ -128,6 +128,55 @@ LEVELS = [
 LEVEL_MAP = {k: (n, c) for k, n, _, c in LEVELS}
 
 
+# ---------------------------------------------------------------- 显示开关
+
+CONFIG_NAME = "index.config.json"
+
+DEFAULT_CONFIG = {
+    "_readme": "控制哪些仓库不出现在 README.md 与 index.html 中。改完重跑 python scripts/gen_index.py 即生效。",
+    "hide_prefixes": ["GH-"],
+    "hide_repos": [],
+    "hide_private": False,
+    "note_hidden": False,
+}
+
+
+def load_config(path=None):
+    """读取显示配置；文件不存在时写出默认配置并返回。"""
+    path = path or os.path.join(os.path.dirname(os.path.abspath(__file__)), CONFIG_NAME)
+    if not os.path.exists(path):
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(DEFAULT_CONFIG, f, ensure_ascii=False, indent=2)
+        print("已生成默认配置：%s" % path)
+        return dict(DEFAULT_CONFIG), path
+    with open(path, encoding="utf-8") as f:
+        cfg = json.load(f)
+    for k, v in DEFAULT_CONFIG.items():
+        cfg.setdefault(k, v)
+    return cfg, path
+
+
+def mark_hidden(recs, cfg):
+    """按配置给每条记录打 hidden 标记，返回 (可见列表, 隐藏列表)。"""
+    pre = tuple(cfg.get("hide_prefixes") or ())
+    names = set(cfg.get("hide_repos") or ())
+    hide_priv = bool(cfg.get("hide_private"))
+
+    visible, hidden = [], []
+    for r in recs:
+        why = ""
+        if names and r["name"] in names:
+            why = "名单"
+        elif pre and r["name"].startswith(pre):
+            why = "前缀"
+        elif hide_priv and r["private"]:
+            why = "私有"
+        r["hidden"] = bool(why)
+        r["hide_by"] = why
+        (hidden if why else visible).append(r)
+    return visible, hidden
+
+
 # ---------------------------------------------------------------- gh 调用
 
 def gh(args, retries=3):
@@ -347,7 +396,7 @@ def build_records(user, org):
 
 # ---------------------------------------------------------------- 输出 JSON
 
-def write_json(recs, path, user, org):
+def write_json(recs, path, user, org, hidden_total=0, cfg=None):
     latest = max((r["pushed"] for r in recs), default="")
     forks = len([r for r in recs if r["fork"]])
     payload = {
@@ -355,11 +404,15 @@ def write_json(recs, path, user, org):
         "owner": user,
         "org": org,
         "total": len(recs),
+        "hidden_total": hidden_total,
         "forks": forks,
         "independent": len(recs) - forks,
         "by_level": dict(sorted(Counter(r["level"] for r in recs).items())),
         "by_group": dict(sorted(Counter(r["group"] for r in recs).items())),
         "latest_push": latest,
+        "display_config": {
+            k: (cfg or {}).get(k) for k in ("hide_prefixes", "hide_repos", "hide_private")
+        },
         "repos": recs,
     }
     with open(path, "w", encoding="utf-8") as f:
@@ -373,7 +426,7 @@ def size_txt(kb):
     return ("%.1f MB" % (kb / 1024.0)) if kb >= 1024 else ("%d KB" % kb)
 
 
-def write_readme(recs, path, user, org):
+def write_readme(recs, path, user, org, hidden_total=0, note_hidden=False):
     now = datetime.now(TZ8).strftime("%Y-%m-%d %H:%M")
     priv = len([r for r in recs if r["private"]])
     forks = len([r for r in recs if r["fork"]])
@@ -385,6 +438,8 @@ def write_readme(recs, path, user, org):
                  "其中 %d 个是 fork 副本，独立项目 **%d** 个；GitHub 侧合计约 **%.0f MB**。\n"
                  % (len(recs), len(recs) - priv, priv, forks, len(recs) - forks, used))
     lines.append("> 本文件由 `scripts/gen_index.py` 自动生成，**请勿手工修改**。最后刷新：%s（GMT+8）\n" % now)
+    if note_hidden and hidden_total:
+        lines.append("> 另有 %d 个仓库按 `scripts/index.config.json` 的配置不在本页展示。\n" % hidden_total)
     lines.append("\n## 按「能不能直接用」分级\n")
     lines.append("| 级别 | 含义 | 数量 |\n|---|---|---|")
     for k, name, desc, _ in LEVELS:
@@ -419,6 +474,9 @@ def write_readme(recs, path, user, org):
     lines.append("| 查资料 / 恢复环境 | F 存档数据 | %d |" % lv.get("F", 0))
     lines.append("\n**刷新方式**：`python scripts/gen_index.py`（需已登录 `gh`）。"
                  "脚本会实时拉取 GitHub 数据，同时重写 `_repos.json`、本文件与 `index.html`。\n")
+    lines.append("**可选隐藏**：`scripts/index.config.json` 控制哪些仓库不进本页与看板 —— "
+                 "`hide_prefixes` 按名字前缀、`hide_repos` 按精确仓库名、`hide_private` 隐藏全部私有仓。"
+                 "改完重跑脚本即生效；临时查看全量加 `--show-all`。\n")
     lines.append("**标记说明**：🔀 表示该仓库是 fork 副本，与组织仓库同名，不计入独立项目。\n")
 
     with open(path, "w", encoding="utf-8") as f:
@@ -541,7 +599,7 @@ lkeys.forEach(b=>b.addEventListener('click',()=>{
 """
 
 
-def write_html(recs, path, user, org, payload):
+def write_html(recs, path, user, org, payload, hidden_total=0, note_hidden=False):
     lv = Counter(r["level"] for r in recs)
     total = len(recs)
     priv = len([r for r in recs if r["private"]])
@@ -630,6 +688,7 @@ def write_html(recs, path, user, org, payload):
                        cards="".join(card(r) for r in items)))
 
     now = datetime.now(TZ8).strftime("%Y-%m-%d %H:%M")
+    hidden_note = ("，另 %d 个未列入展示" % hidden_total) if (note_hidden and hidden_total) else ""
     html = """<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -641,7 +700,7 @@ def write_html(recs, path, user, org, payload):
 <body>
 <div class="wrap">
   <h1>项目索引</h1>
-  <p class="sub">账号 <b>%s</b>%s · 共 <b>%d</b> 个仓库（独立项目 <b>%d</b> 个，其余为 fork 副本）
+  <p class="sub">账号 <b>%s</b>%s · 共 <b>%d</b> 个仓库（独立项目 <b>%d</b> 个，其余为 fork 副本%s）
   · 数据实时抓取于 <b>%s</b> · 本页由 <code>scripts/gen_index.py</code> 生成</p>
 %s
 %s
@@ -659,7 +718,7 @@ def write_html(recs, path, user, org, payload):
 <script>%s</script>
 </body>
 </html>""" % (CSS, esc(user), (" + 组织 <b>%s</b>" % esc(org)) if org else "",
-              total, total - len([r for r in recs if r["fork"]]), now,
+              total, total - len([r for r in recs if r["fork"]]), hidden_note, now,
               stats, levels, chips, "".join(sections), JS)
 
     with open(path, "w", encoding="utf-8") as f:
@@ -674,6 +733,8 @@ def main():
     ap.add_argument("--out", default=None, help="输出目录，默认脚本上级目录")
     ap.add_argument("--user", default=None, help="账号名，默认取 gh 当前登录")
     ap.add_argument("--org", default="GHZS-Project", help="组织名，留空字符串则不查组织")
+    ap.add_argument("--config", default=None, help="显示配置文件，默认 scripts/index.config.json")
+    ap.add_argument("--show-all", action="store_true", help="忽略隐藏配置，输出全部仓库")
     args = ap.parse_args()
 
     user = args.user
@@ -684,15 +745,28 @@ def main():
     org = args.org or None
 
     print("拉取数据：user=%s org=%s" % (user, org or "—"))
-    recs = build_records(user, org)
-    print("得到 %d 个仓库" % len(recs))
+    all_recs = build_records(user, org)
+    print("得到 %d 个仓库" % len(all_recs))
+
+    cfg, cfg_path = load_config(args.config)
+    if args.show_all:
+        cfg = dict(cfg, hide_prefixes=[], hide_repos=[], hide_private=False)
+        print("--show-all 已生效：本次忽略隐藏配置")
+    recs, hidden = mark_hidden(all_recs, cfg)
+    if hidden:
+        by = Counter(r["hide_by"] for r in hidden)
+        print("按配置隐藏 %d 个（%s）" % (
+            len(hidden), "，".join("%s %d" % (k, v) for k, v in sorted(by.items()))))
+        print("  隐藏名单：%s" % "、".join("%s/%s" % (r["owner"], r["name"]) for r in hidden))
+    print("实际展示 %d 个 · 配置 %s" % (len(recs), cfg_path))
 
     pj = os.path.join(out, "_repos.json")
     pm = os.path.join(out, "README.md")
     ph = os.path.join(out, "index.html")
-    payload = write_json(recs, pj, user, org)
-    n1 = write_readme(recs, pm, user, org)
-    n2 = write_html(recs, ph, user, org, payload)
+    note = bool(cfg.get("note_hidden"))
+    payload = write_json(recs, pj, user, org, hidden_total=len(hidden), cfg=cfg)
+    n1 = write_readme(recs, pm, user, org, hidden_total=len(hidden), note_hidden=note)
+    n2 = write_html(recs, ph, user, org, payload, hidden_total=len(hidden), note_hidden=note)
 
     lv = Counter(r["level"] for r in recs)
     print("\n写出：")

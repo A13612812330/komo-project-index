@@ -1,74 +1,36 @@
 {
- "generated_at": "2026-11-09 09:41:50",
+ "generated_at": "2026-11-09 10:04:22",
  "owner": "A13612812330",
  "org": "GHZS-Project",
- "total": 41,
- "forks": 2,
- "independent": 39,
+ "total": 27,
+ "hidden_total": 14,
+ "forks": 0,
+ "independent": 27,
  "by_level": {
-  "A": 2,
-  "B": 18,
-  "C": 6,
+  "A": 1,
+  "B": 7,
+  "C": 5,
   "D": 2,
-  "E": 3,
+  "E": 2,
   "F": 10
  },
  "by_group": {
-  "AI 能力与技能": 8,
-  "内容生产与资讯": 13,
-  "创作与归档": 4,
+  "AI 能力与技能": 7,
+  "内容生产与资讯": 7,
+  "创作与归档": 3,
   "平台与工程": 1,
   "数据与配置": 3,
-  "游戏与工具": 12
+  "游戏与工具": 6
  },
  "latest_push": "2026-11-06",
+ "display_config": {
+  "hide_prefixes": [
+   "GH-"
+  ],
+  "hide_repos": [],
+  "hide_private": false
+ },
  "repos": [
-  {
-   "name": "GH-GameGather-APP",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-GameGather-APP",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "PC/手游情报站 + 资源索引 + Electron 桌面成品",
-   "group": "游戏与工具",
-   "level": "A",
-   "level_name": "下载即装",
-   "how": "去 Releases 下载 GH-GameGather-APP-v28-win-x64.zip（262.5 MB）",
-   "commits": 13,
-   "lang": "HTML",
-   "kb": 3652,
-   "pushed": "2026-10-26",
-   "days": 13,
-   "release": "v28",
-   "release_at": "2026-10-26",
-   "assets": [
-    {
-     "tag": "v28",
-     "name": "GH-GameGather-APP-v28-win-x64.zip",
-     "mb": 262.5,
-     "url": "https://github.com/GHZS-Project/GH-GameGather-APP/releases/download/v28/GH-GameGather-APP-v28-win-x64.zip"
-    }
-   ],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".gitignore",
-    "HANDOVER-GH-GameGather-APP.md",
-    "LICENSE",
-    "NEXT-游戏情报客户端.md",
-    "PACK-GameHub-exe.md",
-    "PLAN-游戏情报客户端.md",
-    "README.md",
-    "SOP-游戏情报客户端.md",
-    "demo",
-    "electron",
-    "electron-intel",
-    "exe-preview"
-   ],
-   "last_msg": "docs: 采用 MIT 许可证",
-   "actions": []
-  },
   {
    "name": "komo-convert-dist",
    "owner": "A13612812330",
@@ -104,7 +66,9 @@
     "vendor"
    ],
    "last_msg": "归档：vendor/media",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "game-aggregator",
@@ -153,7 +117,9 @@
    "last_msg": "chore(sync): 10-28 roster rotation and hub data refresh",
    "actions": [
     "建议打 release"
-   ]
+   ],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "GameNews",
@@ -197,324 +163,9 @@
    "last_msg": "fix(monitor): 整点监控卡死 4 天 —— 抓取硬截止 + 看门狗 + 网络层超时",
    "actions": [
     "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-CloudGame",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-CloudGame",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "云游戏相关采集与分析",
-   "group": "游戏与工具",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后 npm install && npm start",
-   "commits": 10,
-   "lang": "HTML",
-   "kb": 2708,
-   "pushed": "2026-10-27",
-   "days": 12,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": true,
-   "entries": [
-    ".gitignore",
-    "AGENT.md",
-    "LICENSE",
-    "README.md",
-    "assets",
-    "config.example.json",
-    "docs",
-    "outputs",
-    "package.json",
-    "pipeline",
-    "requirements.txt",
-    "samples"
    ],
-   "last_msg": "feat: 10.12-10.25 期产出 + 脚本同步（Steam 官方接口取榜 / 粒度自适应）",
-   "actions": [
-    "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-GameSearch",
-   "owner": "A13612812330",
-   "url": "https://github.com/A13612812330/GH-GameSearch",
-   "private": false,
-   "fork": true,
-   "archived": false,
-   "desc": "游戏搜索（Android）",
-   "group": "内容生产与资讯",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后用 Android Studio 打开构建",
-   "commits": 8,
-   "lang": "Kotlin",
-   "kb": 962,
-   "pushed": "2026-10-28",
-   "days": 11,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".github",
-    ".gitignore",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md",
-    "SECURITY.md",
-    "app",
-    "build.gradle",
-    "dist",
-    "gradle",
-    "gradle.properties",
-    "gradlew",
-    "gradlew.bat",
-    "settings.gradle"
-   ],
-   "last_msg": "ci: 补 android 构建工作流",
-   "actions": [
-    "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-Gamehub",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-Gamehub",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "机地与 XDGAME 聚合站（团队版）",
-   "group": "内容生产与资讯",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后 npm install && npm start",
-   "commits": 8,
-   "lang": "HTML",
-   "kb": 53488,
-   "pushed": "2026-10-26",
-   "days": 13,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".gitignore",
-    ".nvmrc",
-    "CHANGELOG.md",
-    "HANDOVER.md",
-    "LICENSE",
-    "NOTICE.md",
-    "PITFALLS.md",
-    "README.md",
-    "ROADMAP.md",
-    "WORKFLOW.md",
-    "data",
-    "docs",
-    "fetchers",
-    "package-lock.json",
-    "package.json",
-    "probe.js",
-    "probe2.js",
-    "public",
-    "server.js",
-    "shared.js"
-   ],
-   "last_msg": "V1 修正：脱敏把断言改成了语法错误 + 自检提示自适应",
-   "actions": [
-    "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-GameSearch",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-GameSearch",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "游戏搜索（Android）",
-   "group": "内容生产与资讯",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后用 Android Studio 打开构建",
-   "commits": 8,
-   "lang": "Kotlin",
-   "kb": 963,
-   "pushed": "2026-10-28",
-   "days": 11,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".github",
-    ".gitignore",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md",
-    "SECURITY.md",
-    "app",
-    "build.gradle",
-    "dist",
-    "gradle",
-    "gradle.properties",
-    "gradlew",
-    "gradlew.bat",
-    "settings.gradle"
-   ],
-   "last_msg": "ci: 补 android 构建工作流",
-   "actions": [
-    "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-Game-Puton",
-   "owner": "A13612812330",
-   "url": "https://github.com/A13612812330/GH-Game-Puton",
-   "private": false,
-   "fork": true,
-   "archived": false,
-   "desc": "游戏后台批量导入（便携版）",
-   "group": "游戏与工具",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后 npm install && npm start",
-   "commits": 7,
-   "lang": "JavaScript",
-   "kb": 151,
-   "pushed": "2026-10-28",
-   "days": 11,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".github",
-    ".gitignore",
-    "LICENSE",
-    "README.md",
-    "main.cjs",
-    "package-lock.json",
-    "package.json",
-    "preload.cjs",
-    "scripts",
-    "web-server.mjs",
-    "交接文档.md",
-    "启动器资源",
-    "局域网使用说明.txt",
-    "局域网启动服务.cmd",
-    "操作手册",
-    "新增游戏字段映射表.md",
-    "页面"
-   ],
-   "last_msg": "ci: 补 release-windows 工作流（Windows 发版）",
-   "actions": [
-    "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-Game-Puton",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-Game-Puton",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "游戏后台批量导入（便携版）",
-   "group": "游戏与工具",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后 npm install && npm start",
-   "commits": 7,
-   "lang": "JavaScript",
-   "kb": 152,
-   "pushed": "2026-10-28",
-   "days": 11,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".github",
-    ".gitignore",
-    "LICENSE",
-    "README.md",
-    "main.cjs",
-    "package-lock.json",
-    "package.json",
-    "preload.cjs",
-    "scripts",
-    "web-server.mjs",
-    "交接文档.md",
-    "启动器资源",
-    "局域网使用说明.txt",
-    "局域网启动服务.cmd",
-    "操作手册",
-    "新增游戏字段映射表.md",
-    "页面"
-   ],
-   "last_msg": "ci: 补 release-windows 工作流",
-   "actions": [
-    "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-NewGameWIki",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-NewGameWIki",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "团队版 NewgameWiki",
-   "group": "内容生产与资讯",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后 npm install && npm start",
-   "commits": 6,
-   "lang": "JavaScript",
-   "kb": 338,
-   "pushed": "2026-10-26",
-   "days": 13,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": true,
-   "entries": [
-    ".env.example",
-    ".gitignore",
-    "AGENTS.md",
-    "AI_AGENT_SETUP.md",
-    "LICENSE",
-    "PROJECT_HANDOFF.md",
-    "README.md",
-    "index.html",
-    "package-lock.json",
-    "package.json",
-    "public",
-    "scripts",
-    "server",
-    "src",
-    "start-newgamewiki-readonly.cmd",
-    "start-newgamewiki-readonly.ps1",
-    "start-newgamewiki-share-admin.cmd",
-    "start-newgamewiki-silent.vbs",
-    "start-newgamewiki.cmd",
-    "start-newgamewiki.ps1"
-   ],
-   "last_msg": "docs: LICENSE 规范为标准 MIT（署名统一 GHZS-Project）",
-   "actions": [
-    "建议打 release"
-   ]
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "NewgameWiki",
@@ -563,45 +214,9 @@
    "last_msg": "docs: add one-step AI agent setup guide",
    "actions": [
     "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-GameGather-UPSTREAM",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-GameGather-UPSTREAM",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "GameGather APP 的配套数据服务",
-   "group": "游戏与工具",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后 npm install && npm start",
-   "commits": 5,
-   "lang": "HTML",
-   "kb": 25622,
-   "pushed": "2026-10-26",
-   "days": 13,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".gitignore",
-    "LICENSE",
-    "README.md",
-    "data",
-    "fetchers",
-    "package.json",
-    "public",
-    "server.js",
-    "shared.js"
    ],
-   "last_msg": "docs: 采用 MIT 许可证",
-   "actions": [
-    "建议打 release"
-   ]
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "H5Game-SlotRoguelike",
@@ -643,92 +258,9 @@
    "last_msg": "feat(ops): 增加移动端检查脚本与远程预览发布规程",
    "actions": [
     "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-WeeklyReport",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-WeeklyReport",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "团队版周报生成",
-   "group": "内容生产与资讯",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后 npm install && npm start",
-   "commits": 4,
-   "lang": "Python",
-   "kb": 111,
-   "pushed": "2026-10-26",
-   "days": 13,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".gitignore",
-    "HANDOFF.md",
-    "LICENSE",
-    "README.md",
-    "Start-WeeklyReportLan.ps1",
-    "WeeklyReportLauncher.cs",
-    "assets",
-    "package.json",
-    "public",
-    "server",
-    "启用局域网访问.ps1"
    ],
-   "last_msg": "docs: 采用 MIT 许可证",
-   "actions": [
-    "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-GameNews",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-GameNews",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "团队版游戏资讯采集与飞书投递",
-   "group": "内容生产与资讯",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后 npm install && npm start",
-   "commits": 4,
-   "lang": "HTML",
-   "kb": 181156,
-   "pushed": "2026-10-26",
-   "days": 13,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": true,
-   "entries": [
-    ".env.example",
-    ".gitignore",
-    "AGENTS.md",
-    "LICENSE",
-    "README.md",
-    "docs",
-    "ecosystem.config.js",
-    "index.html",
-    "package-lock.json",
-    "package.json",
-    "public",
-    "published-posters",
-    "scripts",
-    "server",
-    "src",
-    "vite.config.js"
-   ],
-   "last_msg": "docs: 采用 MIT 许可证",
-   "actions": [
-    "建议打 release"
-   ]
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "Market-dashboard",
@@ -746,7 +278,7 @@
    "lang": "JavaScript",
    "kb": 1371,
    "pushed": "2026-10-19",
-   "days": 20,
+   "days": 21,
    "release": "",
    "release_at": "",
    "assets": [],
@@ -774,7 +306,9 @@
    "last_msg": "docs: add agent handoff guide",
    "actions": [
     "建议打 release"
-   ]
+   ],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "H5Game",
@@ -823,49 +357,9 @@
    "last_msg": "archive: 归档 H5Game 源码与素材（release 构建物除外，2026-10-29）",
    "actions": [
     "建议打 release"
-   ]
-  },
-  {
-   "name": "GH-GameSearch-Prototype",
-   "owner": "A13612812330",
-   "url": "https://github.com/A13612812330/GH-GameSearch-Prototype",
-   "private": true,
-   "fork": false,
-   "archived": false,
-   "desc": "GH-GameSearch 原型归档",
-   "group": "游戏与工具",
-   "level": "B",
-   "level_name": "源码可跑",
-   "how": "clone 后用 Android Studio 打开构建",
-   "commits": 1,
-   "lang": "Kotlin",
-   "kb": 103,
-   "pushed": "2026-10-28",
-   "days": 11,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".gitignore",
-    "README.md",
-    "app",
-    "build.gradle",
-    "chrome-test-extension",
-    "gradle",
-    "gradle.properties",
-    "gradlew",
-    "gradlew.bat",
-    "prototype.html",
-    "real-data-test-snippet.js",
-    "real-data-test.html",
-    "settings.gradle"
    ],
-   "last_msg": "feat: archive GH-GameSearch prototype workspace (2026-06)",
-   "actions": [
-    "建议打 release"
-   ]
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "pm-workbench",
@@ -904,7 +398,9 @@
    "last_msg": "feat: initial PM Workbench release",
    "actions": [
     "建议打 release"
-   ]
+   ],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "Komoyou-Skill-WorkBuddy",
@@ -938,7 +434,9 @@
     "skills"
    ],
    "last_msg": "chore(komo-expert): 版本 1.2.0 -> 1.2.1（内含 komo-skill 已升至 v2.0.1）",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "REA-Skill",
@@ -971,7 +469,9 @@
     "skills"
    ],
    "last_msg": "refactor: promote REA-Skill and isolate Slotbound case",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "Komoyou-Skill",
@@ -1006,43 +506,9 @@
     "templates"
    ],
    "last_msg": "docs(changelog): 补 v2.1.1 与 komo-skill v2.0.1 条目",
-   "actions": []
-  },
-  {
-   "name": "GH-KomoSkill",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-KomoSkill",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "团队版技能包",
-   "group": "AI 能力与技能",
-   "level": "C",
-   "level_name": "技能包",
-   "how": "把 skills/ 下的目录复制进 AI 的技能目录",
-   "commits": 4,
-   "lang": "Python",
-   "kb": 60,
-   "pushed": "2026-10-26",
-   "days": 13,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".gitignore",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md",
-    "SKILL.md",
-    "examples",
-    "references",
-    "scripts",
-    "templates"
-   ],
-   "last_msg": "docs: LICENSE 规范为标准 MIT（署名统一 GHZS-Project）",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "komo-agent-skill",
@@ -1072,7 +538,9 @@
     "skills"
    ],
    "last_msg": "docs(changelog): 补 2026-10-29 条目（komo-ppt-skill 路由与页数门禁）",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "codex-migration-pack",
@@ -1105,7 +573,9 @@
     "tools"
    ],
    "last_msg": "archive: 归档 Codex迁移包（2026-10-29）",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "okcs2-monitor-suite",
@@ -1162,7 +632,9 @@
     "启动OKCS2监控中心.cmd"
    ],
    "last_msg": "feat: expand monitoring analysis and streamline collection",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "Agnes-vampire-survivors-wiki-tool",
@@ -1195,7 +667,9 @@
     "vs_wiki_images_normalized"
    ],
    "last_msg": "archive: 归档 吸血鬼幸存者Wiki工具（2026-10-29）",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "endgame-weekly-report",
@@ -1233,44 +707,9 @@
     "latest"
    ],
    "last_msg": "feat: 归档新增 2026-10-27 期（10.12-10.25 大报告 · 跨期对比 · 节后回落）",
-   "actions": []
-  },
-  {
-   "name": "GH-Handover",
-   "owner": "GHZS-Project",
-   "url": "https://github.com/GHZS-Project/GH-Handover",
-   "private": false,
-   "fork": false,
-   "archived": false,
-   "desc": "交接文档与在线看板",
-   "group": "创作与归档",
-   "level": "E",
-   "level_name": "静态页",
-   "how": "直接打开 index.html，或用静态服务器托管",
-   "commits": 12,
-   "lang": "Python",
-   "kb": 999,
-   "pushed": "2026-10-26",
-   "days": 13,
-   "release": "",
-   "release_at": "",
-   "assets": [],
-   "data_assets": [],
-   "env_required": false,
-   "entries": [
-    ".gitattributes",
-    ".gitignore",
-    "HANDOVER.md",
-    "LICENSE",
-    "PROMPTS.md",
-    "README.md",
-    "index.html",
-    "prompts",
-    "shots",
-    "tools"
-   ],
-   "last_msg": "refactor(pages): 本机端口不再当入口 + 补交接表「日常任务」",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "komo-project-index",
@@ -1301,7 +740,9 @@
     "index.html"
    ],
    "last_msg": "komo-project-index: 归档导入 2026-10-30",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "gamenews-snapshots",
@@ -1348,7 +789,9 @@
     "server-64424.stderr.log"
    ],
    "last_msg": "快照：weekly-snapshots/2026-10-29",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "Komo-Convert",
@@ -1385,7 +828,9 @@
     "scripts"
    ],
    "last_msg": "test: refresh installer-era demo verification",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "komo-misc-archive",
@@ -1427,7 +872,9 @@
    "last_msg": "komo-misc-archive: 归档导入 2026-10-30",
    "actions": [
     "公开仓含数据结构导出，复查"
-   ]
+   ],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "gamenews-env-secrets",
@@ -1459,7 +906,9 @@
    "last_msg": "gamenews-env-secrets: 归档导入 2026-10-30",
    "actions": [
     "含密钥，勿转公开"
-   ]
+   ],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "codex-session-archive",
@@ -1489,7 +938,9 @@
     "Workbuddy"
    ],
    "last_msg": "codex-session-archive: 归档导入 2026-10-30",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "komo-market-dashboard-data",
@@ -1538,7 +989,9 @@
    "last_msg": "komo-market-dashboard-data: 归档导入 2026-10-30",
    "actions": [
     "含密钥，勿转公开"
-   ]
+   ],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "newgamewiki-data",
@@ -1574,7 +1027,9 @@
     "steam"
    ],
    "last_msg": "newgamewiki-data: 归档导入 2026-10-30",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "gameops-bulk-import",
@@ -1603,7 +1058,9 @@
     "启动器资源"
    ],
    "last_msg": "gameops-bulk-import: 归档导入 2026-10-30",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "openclaw-requirements",
@@ -1638,7 +1095,9 @@
     "python-3.11.9-amd64.exe"
    ],
    "last_msg": "openclaw-requirements: 归档导入 2026-10-30",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   },
   {
    "name": "novel-archive",
@@ -1671,7 +1130,9 @@
     "小说提示词.txt"
    ],
    "last_msg": "novel-archive: 归档导入 2026-10-30",
-   "actions": []
+   "actions": [],
+   "hidden": false,
+   "hide_by": ""
   }
  ]
 }

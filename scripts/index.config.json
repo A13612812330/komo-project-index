@@ -1,0 +1,13 @@
+{
+  "_readme": "控制哪些仓库不出现在 README.md 与 index.html 中。改完重跑 python scripts/gen_index.py 即生效；临时全量查看用 --show-all。",
+  "_字段说明": {
+    "hide_prefixes": "按仓库名前缀隐藏，如 \"GH-\" 会隐藏所有 GH- 开头的仓库",
+    "hide_repos": "按完整仓库名精确隐藏，如 [\"komo-misc-archive\"]",
+    "hide_private": "true 表示所有私有仓库一律不展示",
+    "note_hidden": "true 表示在页面上显示「另有 N 个未列入展示」的说明，false 则完全不留痕"
+  },
+  "hide_prefixes": ["GH-"],
+  "hide_repos": [],
+  "hide_private": false,
+  "note_hidden": false
+}
