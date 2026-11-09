@@ -2,300 +2,766 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>项目目录 · Komo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>项目索引 · Komo</title>
 <style>
-:root{--bg:#f6f7f9;--panel:#fff;--line:#e3e6ea;--txt:#1b1f23;--dim:#6b7280;--acc:#2563eb;--acc2:#eff4ff}
+:root{
+  --bg:#0b0d12; --panel:#141821; --panel2:#1a1f2b; --line:#252b38;
+  --text:#e8ecf4; --muted:#98a2b3; --dim:#6b7688;
+  --priv:#f472b6; --pub:#34d399;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--txt);
-font-family:-apple-system,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;line-height:1.55}
-.wrap{max-width:1180px;margin:0 auto;padding:36px 22px 70px}
-header{margin-bottom:26px}
-h1{margin:0 0 6px;font-size:26px;letter-spacing:-.3px}
-.sub{color:var(--dim);font-size:14px}
-.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 16px;min-width:104px}
-.stat b{display:block;font-size:20px;line-height:1.2}
-.stat span{font-size:12px;color:var(--dim)}
-.grp{margin-top:30px}
-h2{font-size:16px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
-.cnt{font-size:12px;font-weight:400;color:var(--dim);background:var(--panel);
-border:1px solid var(--line);border-radius:20px;padding:1px 8px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px}
-.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;
-padding:13px 15px;text-decoration:none;color:inherit;transition:.15s}
-.card:hover{border-color:var(--acc);box-shadow:0 3px 14px rgba(37,99,235,.1);transform:translateY(-1px)}
-.card-h{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.card-n{font-weight:600;font-size:14px;word-break:break-all}
-.b-pub{font-size:11px;color:#0f7b3d;background:#e8f7ee;border-radius:5px;padding:1px 6px;white-space:nowrap}
-.b-pri{font-size:11px;color:#8a5300;background:#fdf3e2;border-radius:5px;padding:1px 6px;white-space:nowrap}
-.card-d{font-size:12.5px;color:var(--dim);margin:7px 0 9px;min-height:34px;
-display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card-m{display:flex;justify-content:space-between;font-size:11.5px;color:#9aa1ab;
-border-top:1px dashed var(--line);padding-top:8px}
-.note{margin-top:34px;background:var(--acc2);border:1px solid #cfe0ff;border-radius:12px;padding:15px 18px;font-size:13px}
-.note b{display:block;margin-bottom:6px}
-.note code{background:#fff;border:1px solid #dbe6ff;border-radius:4px;padding:1px 5px;font-size:12px}
-footer{margin-top:30px;text-align:center;color:#9aa1ab;font-size:12px}
+body{margin:0;background:radial-gradient(1200px 600px at 15% -10%,#16202e 0%,var(--bg) 55%);
+color:var(--text);font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+padding:32px 28px 56px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1400px;margin:0 auto}
+h1{font-size:22px;margin:0 0 6px;letter-spacing:.4px}
+.sub{color:var(--muted);font-size:13px;margin:0 0 22px;line-height:1.7}
+.sub b{color:#cbd5e1;font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px;margin-bottom:18px}
+.stat{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+border-radius:12px;padding:14px 16px}
+.stat .k{color:var(--muted);font-size:12px;letter-spacing:.4px}
+.stat .v{font-size:24px;font-weight:650;margin-top:6px;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:12px;color:var(--dim);font-weight:400;margin-left:4px}
+.levels{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+border-radius:12px;padding:15px 16px;margin-bottom:20px}
+.levels .lt{font-size:12.5px;color:var(--muted);margin-bottom:11px}
+.lbar{display:flex;height:12px;border-radius:99px;overflow:hidden;background:#1b2130}
+.lbar i{display:block;height:100%;transition:.2s}
+.llegend{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.lkey{display:inline-flex;align-items:center;gap:6px;font-size:11.8px;color:#93a1b5;
+background:#1b2130;border:1px solid #2a3245;border-radius:7px;padding:5px 10px;cursor:pointer}
+.lkey.on{border-color:#3b82f6;background:#16233a;color:#dbeafe}
+.lkey b{color:#dbe3ee;font-variant-numeric:tabular-nums}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:6px 0 22px}
+input#q{background:var(--panel);border:1px solid var(--line);border-radius:9px;color:var(--text);
+padding:9px 12px;font-size:13px;width:270px;outline:none}
+input#q:focus{border-color:#3b82f6}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;color:#c7d0dd;
+font-size:12.5px;padding:7px 13px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.chip em{font-style:normal;color:var(--dim);font-variant-numeric:tabular-nums}
+.chip.on{border-color:#3b82f6;background:#16233a;color:#dbeafe}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.cat{margin:26px 0 8px}
+.cat-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.cat-head h2{font-size:15.5px;margin:0;font-weight:600}
+.cat-head .count{font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+.cat-head .cat-desc{font-size:12.5px;color:var(--dim)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);
+border-radius:12px;padding:14px 15px;transition:.16s;position:relative}
+.card:hover{border-color:#37415a;transform:translateY(-2px)}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.repo{font-family:ui-monospace,Consolas,monospace;font-size:13.5px;color:#dbeafe;word-break:break-all}
+.badge{font-size:11px;padding:2px 8px;border-radius:999px;white-space:nowrap;border:1px solid}
+.badge.private{color:var(--priv);border-color:#5b2a45;background:#2a1420}
+.badge.public{color:var(--pub);border-color:#1d4b3d;background:#0f2a24}
+.desc{font-size:12.8px;color:#b9c3d3;margin:9px 0 10px;line-height:1.55;min-height:38px}
+.lv{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;
+border-radius:7px;padding:4px 10px;margin-bottom:9px;border:1px solid}
+.how{font-size:11.8px;color:#8b97a8;margin:0 0 10px;line-height:1.5;
+background:#111620;border-left:2px solid #2a3245;padding:7px 10px;border-radius:0 6px 6px 0}
+.bar{height:3px;background:#1f2532;border-radius:99px;overflow:hidden;margin-bottom:9px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#3b82f6,#22d3ee);border-radius:99px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--dim);font-variant-numeric:tabular-nums}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0 4px}
+.tag{font-size:11px;padding:2px 8px;border-radius:6px;background:#1b2130;border:1px solid #2a3245;color:#93a1b5}
+.tag.rel{color:#a7f3d0;border-color:#1d4b3d;background:#0f2a24}
+.tag.warn{color:#fbbf24;border-color:#5a4213;background:#2a1f06}
+.tag.done{color:#94a3b8}
+footer{margin-top:34px;border-top:1px solid var(--line);padding-top:14px;color:var(--dim);
+font-size:11.5px;line-height:1.8}
+.hide{display:none!important}
+@media(max-width:640px){body{padding:20px 14px 40px}.grid{grid-template-columns:1fr}input#q{width:100%}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1>项目目录 · Komo</h1>
-    <div class="sub">本机全部项目的 GitHub 总索引，仓库名即项目名。更新于 2026-10-30 16:02</div>
-    <div class="stats">
-      <div class="stat"><b>41</b><span>仓库总数</span></div>
-      <div class="stat"><b>22</b><span>公开</span></div>
-      <div class="stat"><b>19</b><span>私有</span></div>
-      <div class="stat"><b>1242 MB</b><span>GitHub 占用</span></div>
-    </div>
-  </header>
-  <section class="grp">
-    <h2>归档 · 2026-10-30 上传<span class="cnt">10</span></h2>
-    <div class="grid">
-      <a class="card" href="https://github.com/A13612812330/openclaw-requirements" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">openclaw-requirements</span><span class="b-pub">公开</span></div>
-        <div class="card-d">Openclaw 环境依赖安装包归档：Git / Node 20-24 / Python 3.11 / openclaw-main 源码包</div>
-        <div class="card-m"><span>221.1 MB</span><span>2026-10-30</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/gamenews-snapshots" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">gamenews-snapshots</span><span class="b-pri">私有</span></div>
-        <div class="card-d">GameNews 周榜快照归档（31 天 6405 个快照）+ 爬虫与简报数据</div>
-        <div class="card-m"><span>127.7 MB</span><span>2026-10-30</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/novel-archive" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">novel-archive</span><span class="b-pri">私有</span></div>
-        <div class="card-d">小说创作归档：原创《双穿：我在高武能修仙》《高武：我能掠夺诸天武道》+ 参考文 + InkAI</div>
-        <div class="card-m"><span>51.7 MB</span><span>2026-10-30</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/gameops-bulk-import" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">gameops-bulk-import</span><span class="b-pri">私有</span></div>
-        <div class="card-d">游戏后台批量导入工具（启动器资源 + node 运行时）</div>
-        <div class="card-m"><span>31.6 MB</span><span>2026-10-30</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/komo-misc-archive" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">komo-misc-archive</span><span class="b-pub">公开</span></div>
-        <div class="card-d">Komo 杂项归档：企划书 / 解包工具 / Temu / Codex 技能触发词 / 数据库结构导出 / 各类 xlsx</div>
-        <div class="card-m"><span>11.6 MB</span><span>2026-10-30</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/codex-session-archive" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">codex-session-archive</span><span class="b-pri">私有</span></div>
-        <div class="card-d">Codex + WorkBuddy 会话记录归档（含索引页与会话数据）</div>
-        <div class="card-m"><span>9.2 MB</span><span>2026-10-30</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/gamenews-env-secrets" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">gamenews-env-secrets</span><span class="b-pri">私有</span></div>
-        <div class="card-d">GameNewsUnified 环境变量备份 + WX-News-Wiki 候选批次数据（含密钥，务必保持私有）</div>
-        <div class="card-m"><span>6.6 MB</span><span>2026-10-30</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/newgamewiki-data" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">newgamewiki-data</span><span class="b-pri">私有</span></div>
-        <div class="card-d">NewgameWiki 数据快照（current.json 等 13 个文件）</div>
-        <div class="card-m"><span>5.6 MB</span><span>2026-10-30</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/komo-market-dashboard-data" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">komo-market-dashboard-data</span><span class="b-pri">私有</span></div>
-        <div class="card-d">Market Dashboard 运行数据（含飞书/钉钉应用配置，私密）</div>
-        <div class="card-m"><span>5.1 MB</span><span>2026-10-30</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/komo-convert-dist" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">komo-convert-dist</span><span class="b-pri">私有</span></div>
-        <div class="card-d">Komo-Convert 发行包归档（installer payload + vendor 依赖）；KomoConvert.exe 与 avfilter-12.dll 见 Release 附件</div>
-        <div class="card-m"><span>0.0 MB</span><span>2026-10-30</span></div>
-      </a>
-    </div>
-  </section>
-  <section class="grp">
-    <h2>游戏资讯与聚合<span class="cnt">3</span></h2>
-    <div class="grid">
-      <a class="card" href="https://github.com/A13612812330/GameNews" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GameNews</span><span class="b-pub">公开</span></div>
-        <div class="card-d">中文游戏资讯采集、简讯编辑、日报周报海报生成与飞书投递工具</div>
-        <div class="card-m"><span>209.2 MB</span><span>2026-10-29</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/game-aggregator" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">game-aggregator</span><span class="b-pub">公开</span></div>
-        <div class="card-d">单机游戏信息聚合站：聚合机地与 XDGAME 的游戏库、MOD、存档、修改器与手机模拟器配置。只做信息，不托管游戏文件。</div>
-        <div class="card-m"><span>144.3 MB</span><span>2026-10-29</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/NewgameWiki" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">NewgameWiki</span><span class="b-pub">公开</span></div>
-        <div class="card-d">本地优先的游戏资讯与排期管理工具</div>
-        <div class="card-m"><span>2.3 MB</span><span>2026-10-29</span></div>
-      </a>
-    </div>
-  </section>
-  <section class="grp">
-    <h2>游戏开发与工具<span class="cnt">6</span></h2>
-    <div class="grid">
-      <a class="card" href="https://github.com/A13612812330/H5Game" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">H5Game</span><span class="b-pri">私有</span></div>
-        <div class="card-d">H5 小游戏合集与打包产物（源码，release 构建物除外）</div>
-        <div class="card-m"><span>20.8 MB</span><span>2026-10-29</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/H5Game-SlotRoguelike" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">H5Game-SlotRoguelike</span><span class="b-pri">私有</span></div>
-        <div class="card-d">Slotbound-inspired pixel H5 roguelike with Kingdom Rush-style technology tree.</div>
-        <div class="card-m"><span>10.2 MB</span><span>2026-10-29</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/Agnes-vampire-survivors-wiki-tool" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">Agnes-vampire-survivors-wiki-tool</span><span class="b-pri">私有</span></div>
-        <div class="card-d">吸血鬼幸存者 Wiki 数据导出与翻译工具</div>
-        <div class="card-m"><span>8.3 MB</span><span>2026-10-29</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/GH-GameSearch" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-GameSearch</span><span class="b-pub">公开</span></div>
-        <div class="card-d">暂无说明</div>
-        <div class="card-m"><span>0.9 MB</span><span>2026-10-28</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/GH-Game-Puton" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-Game-Puton</span><span class="b-pub">公开</span></div>
-        <div class="card-d">Windows game admin batch import tool with portable release</div>
-        <div class="card-m"><span>0.1 MB</span><span>2026-10-28</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/GH-GameSearch-Prototype" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-GameSearch-Prototype</span><span class="b-pri">私有</span></div>
-        <div class="card-d">Archive of the pre-repository GH-GameSearch prototype workspace (Android app + chrome test extension + early data probes)</div>
-        <div class="card-m"><span>0.1 MB</span><span>2026-10-28</span></div>
-      </a>
-    </div>
-  </section>
-  <section class="grp">
-    <h2>端游周报<span class="cnt">1</span></h2>
-    <div class="grid">
-      <a class="card" href="https://github.com/A13612812330/endgame-weekly-report" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">endgame-weekly-report</span><span class="b-pub">公开</span></div>
-        <div class="card-d">端游三源（搜索/云游戏下载/SteamDB）周报归档 · 按产出日期分目录，含在线看板</div>
-        <div class="card-m"><span>1.8 MB</span><span>2026-10-27</span></div>
-      </a>
-    </div>
-  </section>
-  <section class="grp">
-    <h2>AI 技能与工作台<span class="cnt">10</span></h2>
-    <div class="grid">
-      <a class="card" href="https://github.com/A13612812330/REA-Skill" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">REA-Skill</span><span class="b-pub">公开</span></div>
-        <div class="card-d">面向获授权应用与游戏的通用逆向/反编译 Skill：代码恢复、功能追踪、数值资源整理与证据验证；Slotbound Demo 为案例子项目。</div>
-        <div class="card-m"><span>81.9 MB</span><span>2026-10-29</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/okcs2-monitor-suite" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">okcs2-monitor-suite</span><span class="b-pri">私有</span></div>
-        <div class="card-d">本地监控与数据归档：采集已授权的普通开箱、对战、巅峰极速与指数盲盒响应，提供历史分析、SQLite 快照和跨电脑恢复。</div>
-        <div class="card-m"><span>14.6 MB</span><span>2026-10-29</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/Komoyou-Skill-WorkBuddy" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">Komoyou-Skill-WorkBuddy</span><span class="b-pri">私有</span></div>
-        <div class="card-d">WorkBuddy 技能合集与 Komo 专家包，提供中文口语路由、项目流程和 REA 应用与游戏逆向研究入口；与 Codex 版 Komoyou-Skill 配套维护。</div>
-        <div class="card-m"><span>6.4 MB</span><span>2026-10-19</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/Komoyou-Skill" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">Komoyou-Skill</span><span class="b-pri">私有</span></div>
-        <div class="card-d">面向中文口语需求的 Codex 技能合集与总控入口，覆盖技能路由、项目流程，以及 REA 应用与游戏逆向研究。</div>
-        <div class="card-m"><span>2.9 MB</span><span>2026-10-29</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/pm-workbench" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">pm-workbench</span><span class="b-pri">私有</span></div>
-        <div class="card-d">本地优先的项目管理、任务看板、服务监控与启动器管理平台。</div>
-        <div class="card-m"><span>1.6 MB</span><span>2026-10-19</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/Market-dashboard" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">Market-dashboard</span><span class="b-pri">私有</span></div>
-        <div class="card-d">本地优先的 A 股与 ETF 行情、研究、自选和模拟交易工作台。</div>
-        <div class="card-m"><span>1.3 MB</span><span>2026-10-19</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/Komo-Convert" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">Komo-Convert</span><span class="b-pri">私有</span></div>
-        <div class="card-d">Komo Convert：本地优先的 Windows 通用工具箱，统一接入文件转换、游戏加速、APK 启动器、种子下载与自定义应用启动器。</div>
-        <div class="card-m"><span>1.3 MB</span><span>2026-10-28</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/codex-migration-pack" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">codex-migration-pack</span><span class="b-pri">私有</span></div>
-        <div class="card-d">Codex 配置与技能迁移包</div>
-        <div class="card-m"><span>0.3 MB</span><span>2026-10-29</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/Daily-points-claimer" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">Daily-points-claimer</span><span class="b-pub">公开</span></div>
-        <div class="card-d">在已登录的 WorkBuddy 和 TraeWork 应用中，通过 Windows 桌面自动化领取每日积分。</div>
-        <div class="card-m"><span>0.0 MB</span><span>2026-09-17</span></div>
-      </a>
-      <a class="card" href="https://github.com/A13612812330/komo-agent-skill" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">komo-agent-skill</span><span class="b-pub">公开</span></div>
-        <div class="card-d">面向中文口语需求的 Codex 技能路由入口：一句话把任务分派到最合适的已装技能/插件/MCP</div>
-        <div class="card-m"><span>0.0 MB</span><span>2026-10-29</span></div>
-      </a>
-    </div>
-  </section>
-  <section class="grp">
-    <h2>组织仓库 · GHZS-Project<span class="cnt">11</span></h2>
-    <div class="grid">
-      <a class="card" href="https://github.com/GHZS-Project/GH-GameNews" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-GameNews</span><span class="b-pub">公开</span></div>
-        <div class="card-d">中文游戏资讯采集、今日简讯、日报/周报海报与飞书投递工具</div>
-        <div class="card-m"><span>176.9 MB</span><span>2026-10-26</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-Gamehub" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-Gamehub</span><span class="b-pub">公开</span></div>
-        <div class="card-d">GH-Gamehub：机地与 XDGAME 的游戏库、MOD、存档、修改器与手机模拟器配置聚合站。只做信息聚合，不托管游戏文件。</div>
-        <div class="card-m"><span>52.2 MB</span><span>2026-10-26</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-GameGather-UPSTREAM" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-GameGather-UPSTREAM</span><span class="b-pub">公开</span></div>
-        <div class="card-d">GH-GameGather APP 的配套数据服务（Express + 93.6 MB JSON 索引快照）。主项目：https://github.com/A13612812330/GH-GameGather-APP</div>
-        <div class="card-m"><span>25.0 MB</span><span>2026-10-26</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-GameGather-APP" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-GameGather-APP</span><span class="b-pub">公开</span></div>
-        <div class="card-d">PC / 手游情报站 + 资源索引 + aria2 下载管理 + Electron 桌面成品。只想直接用：Releases 下 262 MB 成品包，整个解压后双击 GameIntel.exe。只做索引，不托管游戏文件。</div>
-        <div class="card-m"><span>3.6 MB</span><span>2026-10-26</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-CloudGame" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-CloudGame</span><span class="b-pub">公开</span></div>
-        <div class="card-d">端游云游戏三源周报 · 可复刻工程仓库（脚本/词库/口径/历史产出）</div>
-        <div class="card-m"><span>2.6 MB</span><span>2026-10-27</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-Handover" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-Handover</span><span class="b-pub">公开</span></div>
-        <div class="card-d">GH 系列项目交接总入口：10 个仓库索引、可用性实测、可复制的 AI Agent prompt</div>
-        <div class="card-m"><span>1.0 MB</span><span>2026-10-26</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-GameSearch" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-GameSearch</span><span class="b-pub">公开</span></div>
-        <div class="card-d">暂无说明</div>
-        <div class="card-m"><span>0.9 MB</span><span>2026-10-28</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-NewGameWIki" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-NewGameWIki</span><span class="b-pub">公开</span></div>
-        <div class="card-d">NewgameWiki game news, schedule and management workflow</div>
-        <div class="card-m"><span>0.3 MB</span><span>2026-10-26</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-Game-Puton" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-Game-Puton</span><span class="b-pub">公开</span></div>
-        <div class="card-d">Windows game admin batch import tool with portable release</div>
-        <div class="card-m"><span>0.1 MB</span><span>2026-10-28</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-WeeklyReport" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-WeeklyReport</span><span class="b-pub">公开</span></div>
-        <div class="card-d">暂无说明</div>
-        <div class="card-m"><span>0.1 MB</span><span>2026-10-26</span></div>
-      </a>
-      <a class="card" href="https://github.com/GHZS-Project/GH-KomoSkill" target="_blank" rel="noopener">
-        <div class="card-h"><span class="card-n">GH-KomoSkill</span><span class="b-pub">公开</span></div>
-        <div class="card-d">[能力] 可复刻的 AI 协作工作法：六阶段门禁 + 证据纪律 + 防失忆</div>
-        <div class="card-m"><span>0.1 MB</span><span>2026-10-26</span></div>
-      </a>
-    </div>
-  </section>
-  <div class="note">
-    <b>关于 2026-10-30 归档</b>
-    下列 10 个仓库由本地 <code>移植</code> 目录整体上传生成，已逐文件比对校验后删除本地副本：
-    <code>gamenews-snapshots</code>、<code>komo-convert-dist</code>、<code>komo-market-dashboard-data</code>、
-    <code>newgamewiki-data</code>、<code>gameops-bulk-import</code>、<code>novel-archive</code>、
-    <code>codex-session-archive</code>、<code>gamenews-env-secrets</code>、<code>openclaw-requirements</code>、
-    <code>komo-misc-archive</code>。
-    <br>其中 <code>komo-convert-dist</code> 有两个文件超过 GitHub 单文件 100MB 上限，放在该仓库的 Release <code>v1.0-archive</code> 附件里。
+  <h1>项目索引</h1>
+  <p class="sub">账号 <b>A13612812330</b> + 组织 <b>GHZS-Project</b> · 共 <b>41</b> 个仓库（独立项目 <b>39</b> 个，其余为 fork 副本）
+  · 数据实时抓取于 <b>2026-11-09 09:41</b> · 本页由 <code>scripts/gen_index.py</code> 生成</p>
+
+  <div class="stats">
+    <div class="stat"><div class="k">仓库总数</div><div class="v">41<small>个</small></div></div>
+    <div class="stat"><div class="k">下载即装</div><div class="v" style="color:#22c55e">2<small>个</small></div></div>
+    <div class="stat"><div class="k">源码可跑</div><div class="v" style="color:#38bdf8">18<small>个</small></div></div>
+    <div class="stat"><div class="k">技能包</div><div class="v" style="color:#818cf8">6<small>个</small></div></div>
+    <div class="stat"><div class="k">存档数据</div><div class="v" style="color:#94a3b8">10<small>个</small></div></div>
+    <div class="stat"><div class="k">公开 / 私有</div><div class="v">21<small>/ 20</small></div></div>
   </div>
-  <footer>GitHub @A13612812330 · 生成于 WorkBuddy</footer>
+
+  <div class="levels">
+    <div class="lt">按「能不能直接用」分布 —— 点下面任意级别可只看该级</div>
+    <div class="lbar"><i style="width:4.9%;background:#22c55e"></i><i style="width:43.9%;background:#38bdf8"></i><i style="width:14.6%;background:#818cf8"></i><i style="width:4.9%;background:#a78bfa"></i><i style="width:7.3%;background:#fbbf24"></i><i style="width:24.4%;background:#94a3b8"></i></div>
+    <div class="llegend"><span class="lkey" data-level="A"><span class="dot" style="background:#22c55e"></span>A 下载即装<b>2</b></span><span class="lkey" data-level="B"><span class="dot" style="background:#38bdf8"></span>B 源码可跑<b>18</b></span><span class="lkey" data-level="C"><span class="dot" style="background:#818cf8"></span>C 技能包<b>6</b></span><span class="lkey" data-level="D"><span class="dot" style="background:#a78bfa"></span>D 脚本直跑<b>2</b></span><span class="lkey" data-level="E"><span class="dot" style="background:#fbbf24"></span>E 静态页<b>3</b></span><span class="lkey" data-level="F"><span class="dot" style="background:#94a3b8"></span>F 存档数据<b>10</b></span></div>
+  </div>
+  <div class="toolbar">
+    <input id="q" placeholder="搜索项目名或功能…">
+    <button class="chip on" data-filter="all">全部 <em>41</em></button><button class="chip" data-filter="private">仅私有</button><button class="chip" data-filter="public">仅公开</button>
+  </div>
+
+  <section class="cat" data-cat="内容生产与资讯">
+    <div class="cat-head">
+      <span class="dot" style="background:#f97316"></span>
+      <h2>内容生产与资讯</h2><span class="count">13</span>
+      <span class="cat-desc">把游戏资讯加工成可读内容、榜单与看板</span>
+    </div>
+    <div class="grid">
+    <article class="card" data-name="game-aggregator" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">game-aggregator</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">单机游戏信息聚合站，整合机地与 XDGAME</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:100%"></i></div>
+      <div class="meta">
+        <span>200 次提交</span><span>HTML</span><span>144.3 MB</span><span>推送 2026-10-29</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GameNews" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GameNews</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">游戏资讯采集、简讯海报生成与飞书投递</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:30%"></i></div>
+      <div class="meta">
+        <span>60 次提交</span><span>HTML</span><span>209.2 MB</span><span>推送 2026-10-29</span>
+      </div>
+      <div class="tags"><span class="tag">需配置 .env</span><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-GameSearch" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-GameSearch</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">游戏搜索（Android）</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后用 Android Studio 打开构建</p>
+      <div class="bar"><i style="width:4%"></i></div>
+      <div class="meta">
+        <span>8 次提交</span><span>Kotlin</span><span>962 KB</span><span>推送 2026-10-28</span>
+      </div>
+      <div class="tags"><span class="tag done">fork 副本</span><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-Gamehub" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-Gamehub</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">机地与 XDGAME 聚合站（团队版）</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:4%"></i></div>
+      <div class="meta">
+        <span>8 次提交</span><span>HTML</span><span>52.2 MB</span><span>推送 2026-10-26</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-GameSearch" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-GameSearch</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">游戏搜索（Android）</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后用 Android Studio 打开构建</p>
+      <div class="bar"><i style="width:4%"></i></div>
+      <div class="meta">
+        <span>8 次提交</span><span>Kotlin</span><span>963 KB</span><span>推送 2026-10-28</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-NewGameWIki" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-NewGameWIki</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">团队版 NewgameWiki</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>6 次提交</span><span>JavaScript</span><span>338 KB</span><span>推送 2026-10-26</span>
+      </div>
+      <div class="tags"><span class="tag">需配置 .env</span><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="NewgameWiki" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">NewgameWiki</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">本地优先的游戏资讯与排期工具</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>5 次提交</span><span>JavaScript</span><span>2.3 MB</span><span>推送 2026-10-29</span>
+      </div>
+      <div class="tags"><span class="tag">需配置 .env</span><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-WeeklyReport" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-WeeklyReport</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">团队版周报生成</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>4 次提交</span><span>Python</span><span>111 KB</span><span>推送 2026-10-26</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-GameNews" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-GameNews</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">团队版游戏资讯采集与飞书投递</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>4 次提交</span><span>HTML</span><span>176.9 MB</span><span>推送 2026-10-26</span>
+      </div>
+      <div class="tags"><span class="tag">需配置 .env</span><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="Agnes-vampire-survivors-wiki-tool" data-private="true" data-level="D">
+      <div class="card-top">
+        <span class="repo">Agnes-vampire-survivors-wiki-tool</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">吸血鬼幸存者 Wiki 导出与翻译</p>
+      <div class="lv" style="color:#a78bfa;border-color:#a78bfa44;background:#a78bfa14">D · 脚本直跑</div>
+      <p class="how">python translate_vampire_survivors_excel.py</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>Python</span><span>8.3 MB</span><span>推送 2026-10-29</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="endgame-weekly-report" data-private="false" data-level="E">
+      <div class="card-top">
+        <span class="repo">endgame-weekly-report</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">端游三源周报归档与在线看板</p>
+      <div class="lv" style="color:#fbbf24;border-color:#fbbf2444;background:#fbbf2414">E · 静态页</div>
+      <p class="how">直接打开 index.html，或用静态服务器托管</p>
+      <div class="bar"><i style="width:6%"></i></div>
+      <div class="meta">
+        <span>12 次提交</span><span>HTML</span><span>1.8 MB</span><span>推送 2026-10-27</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="gamenews-snapshots" data-private="true" data-level="F">
+      <div class="card-top">
+        <span class="repo">gamenews-snapshots</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">GameNews 周榜快照归档</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:19%"></i></div>
+      <div class="meta">
+        <span>38 次提交</span><span>HTML</span><span>127.7 MB</span><span>推送 2026-10-30</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="newgamewiki-data" data-private="true" data-level="F">
+      <div class="card-top">
+        <span class="repo">newgamewiki-data</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">NewgameWiki 数据快照</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>HTML</span><span>5.6 MB</span><span>推送 2026-10-30</span>
+      </div>
+      
+    </article></div>
+  </section>
+  <section class="cat" data-cat="游戏与工具">
+    <div class="cat-head">
+      <span class="dot" style="background:#22c55e"></span>
+      <h2>游戏与工具</h2><span class="count">12</span>
+      <span class="cat-desc">面向玩家与运营的实际可用工具</span>
+    </div>
+    <div class="grid">
+    <article class="card" data-name="GH-GameGather-APP" data-private="false" data-level="A">
+      <div class="card-top">
+        <span class="repo">GH-GameGather-APP</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">PC/手游情报站 + 资源索引 + Electron 桌面成品</p>
+      <div class="lv" style="color:#22c55e;border-color:#22c55e44;background:#22c55e14">A · 下载即装</div>
+      <p class="how">去 Releases 下载 GH-GameGather-APP-v28-win-x64.zip（262.5 MB）</p>
+      <div class="bar"><i style="width:6%"></i></div>
+      <div class="meta">
+        <span>13 次提交</span><span>HTML</span><span>3.6 MB</span><span>推送 2026-10-26</span>
+      </div>
+      <div class="tags"><span class="tag rel">v28</span></div>
+    </article>
+    <article class="card" data-name="komo-convert-dist" data-private="true" data-level="A">
+      <div class="card-top">
+        <span class="repo">komo-convert-dist</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">Komo-Convert 发行包（内含 exe 成品）</p>
+      <div class="lv" style="color:#22c55e;border-color:#22c55e44;background:#22c55e14">A · 下载即装</div>
+      <p class="how">去 Releases 下载 KomoConvert.exe（204.4 MB）</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>4 次提交</span><span>HTML</span><span>128.3 MB</span><span>推送 2026-10-30</span>
+      </div>
+      <div class="tags"><span class="tag rel">v1.0-archive</span></div>
+    </article>
+    <article class="card" data-name="GH-CloudGame" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-CloudGame</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">云游戏相关采集与分析</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:5%"></i></div>
+      <div class="meta">
+        <span>10 次提交</span><span>HTML</span><span>2.6 MB</span><span>推送 2026-10-27</span>
+      </div>
+      <div class="tags"><span class="tag">需配置 .env</span><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-Game-Puton" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-Game-Puton</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">游戏后台批量导入（便携版）</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>7 次提交</span><span>JavaScript</span><span>151 KB</span><span>推送 2026-10-28</span>
+      </div>
+      <div class="tags"><span class="tag done">fork 副本</span><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-Game-Puton" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-Game-Puton</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">游戏后台批量导入（便携版）</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>7 次提交</span><span>JavaScript</span><span>152 KB</span><span>推送 2026-10-28</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-GameGather-UPSTREAM" data-private="false" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-GameGather-UPSTREAM</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">GameGather APP 的配套数据服务</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>5 次提交</span><span>HTML</span><span>25.0 MB</span><span>推送 2026-10-26</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="H5Game-SlotRoguelike" data-private="true" data-level="B">
+      <div class="card-top">
+        <span class="repo">H5Game-SlotRoguelike</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">像素风 H5 肉鸽，含科技树</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>4 次提交</span><span>JavaScript</span><span>10.2 MB</span><span>推送 2026-11-06</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="H5Game" data-private="true" data-level="B">
+      <div class="card-top">
+        <span class="repo">H5Game</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">H5 小游戏合集与打包产物</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>HTML</span><span>20.8 MB</span><span>推送 2026-10-29</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="GH-GameSearch-Prototype" data-private="true" data-level="B">
+      <div class="card-top">
+        <span class="repo">GH-GameSearch-Prototype</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">GH-GameSearch 原型归档</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后用 Android Studio 打开构建</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>Kotlin</span><span>103 KB</span><span>推送 2026-10-28</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="okcs2-monitor-suite" data-private="true" data-level="D">
+      <div class="card-top">
+        <span class="repo">okcs2-monitor-suite</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">本地监控与数据归档：开箱、对战、指数</p>
+      <div class="lv" style="color:#a78bfa;border-color:#a78bfa44;background:#a78bfa14">D · 脚本直跑</div>
+      <p class="how">python 入口脚本</p>
+      <div class="bar"><i style="width:5%"></i></div>
+      <div class="meta">
+        <span>10 次提交</span><span>JavaScript</span><span>14.6 MB</span><span>推送 2026-10-29</span>
+      </div>
+      <div class="tags"><span class="tag rel">data-latest</span><span class="tag">release 是数据快照，非程序</span></div>
+    </article>
+    <article class="card" data-name="Komo-Convert" data-private="true" data-level="F">
+      <div class="card-top">
+        <span class="repo">Komo-Convert</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">Windows 通用工具箱：转换、加速、APK</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>5 次提交</span><span>JavaScript</span><span>1.3 MB</span><span>推送 2026-10-28</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="gameops-bulk-import" data-private="true" data-level="F">
+      <div class="card-top">
+        <span class="repo">gameops-bulk-import</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">游戏后台批量导入工具</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>PowerShell</span><span>31.6 MB</span><span>推送 2026-10-30</span>
+      </div>
+      
+    </article></div>
+  </section>
+  <section class="cat" data-cat="AI 能力与技能">
+    <div class="cat-head">
+      <span class="dot" style="background:#818cf8"></span>
+      <h2>AI 能力与技能</h2><span class="count">8</span>
+      <span class="cat-desc">技能包、路由入口与迁移归档</span>
+    </div>
+    <div class="grid">
+    <article class="card" data-name="Komoyou-Skill-WorkBuddy" data-private="true" data-level="C">
+      <div class="card-top">
+        <span class="repo">Komoyou-Skill-WorkBuddy</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">WorkBuddy 技能合集与 Komo 专家包</p>
+      <div class="lv" style="color:#818cf8;border-color:#818cf844;background:#818cf814">C · 技能包</div>
+      <p class="how">把 skills/ 下的目录复制进 AI 的技能目录</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>7 次提交</span><span>Python</span><span>6.4 MB</span><span>推送 2026-10-19</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="REA-Skill" data-private="true" data-level="C">
+      <div class="card-top">
+        <span class="repo">REA-Skill</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">获授权应用与游戏的逆向、反编译技能</p>
+      <div class="lv" style="color:#818cf8;border-color:#818cf844;background:#818cf814">C · 技能包</div>
+      <p class="how">把 skills/ 下的目录复制进 AI 的技能目录</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>6 次提交</span><span>Assembly</span><span>81.9 MB</span><span>推送 2026-10-29</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="Komoyou-Skill" data-private="true" data-level="C">
+      <div class="card-top">
+        <span class="repo">Komoyou-Skill</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">Codex 技能合集与总控入口</p>
+      <div class="lv" style="color:#818cf8;border-color:#818cf844;background:#818cf814">C · 技能包</div>
+      <p class="how">把 skills/ 下的目录复制进 AI 的技能目录</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>6 次提交</span><span>Python</span><span>2.9 MB</span><span>推送 2026-10-29</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="GH-KomoSkill" data-private="false" data-level="C">
+      <div class="card-top">
+        <span class="repo">GH-KomoSkill</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">团队版技能包</p>
+      <div class="lv" style="color:#818cf8;border-color:#818cf844;background:#818cf814">C · 技能包</div>
+      <p class="how">把 skills/ 下的目录复制进 AI 的技能目录</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>4 次提交</span><span>Python</span><span>60 KB</span><span>推送 2026-10-26</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="komo-agent-skill" data-private="false" data-level="C">
+      <div class="card-top">
+        <span class="repo">komo-agent-skill</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">Codex 技能路由入口，一句话分派</p>
+      <div class="lv" style="color:#818cf8;border-color:#818cf844;background:#818cf814">C · 技能包</div>
+      <p class="how">把 skills/ 下的目录复制进 AI 的技能目录</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>3 次提交</span><span>—</span><span>5 KB</span><span>推送 2026-10-29</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="codex-migration-pack" data-private="true" data-level="C">
+      <div class="card-top">
+        <span class="repo">codex-migration-pack</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">Codex 配置与技能迁移包</p>
+      <div class="lv" style="color:#818cf8;border-color:#818cf844;background:#818cf814">C · 技能包</div>
+      <p class="how">把 skills/ 下的目录复制进 AI 的技能目录</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>Python</span><span>280 KB</span><span>推送 2026-10-29</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="codex-session-archive" data-private="true" data-level="F">
+      <div class="card-top">
+        <span class="repo">codex-session-archive</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">Codex、WorkBuddy 会话记录归档</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>HTML</span><span>9.2 MB</span><span>推送 2026-10-30</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="openclaw-requirements" data-private="false" data-level="F">
+      <div class="card-top">
+        <span class="repo">openclaw-requirements</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">Openclaw 环境依赖安装包</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>—</span><span>221.1 MB</span><span>推送 2026-10-30</span>
+      </div>
+      
+    </article></div>
+  </section>
+  <section class="cat" data-cat="数据与配置">
+    <div class="cat-head">
+      <span class="dot" style="background:#38bdf8"></span>
+      <h2>数据与配置</h2><span class="count">3</span>
+      <span class="cat-desc">行情数据、运行配置与密钥备份</span>
+    </div>
+    <div class="grid">
+    <article class="card" data-name="Market-dashboard" data-private="true" data-level="B">
+      <div class="card-top">
+        <span class="repo">Market-dashboard</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">A 股与 ETF 行情、研究、模拟交易</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>3 次提交</span><span>JavaScript</span><span>1.3 MB</span><span>推送 2026-10-19</span>
+      </div>
+      <div class="tags"><span class="tag">需配置 .env</span><span class="tag ">建议打 release</span></div>
+    </article>
+    <article class="card" data-name="gamenews-env-secrets" data-private="true" data-level="F">
+      <div class="card-top">
+        <span class="repo">gamenews-env-secrets</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">环境变量备份，含密钥</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>—</span><span>6.6 MB</span><span>推送 2026-10-30</span>
+      </div>
+      <div class="tags"><span class="tag warn">含密钥，勿转公开</span></div>
+    </article>
+    <article class="card" data-name="komo-market-dashboard-data" data-private="true" data-level="F">
+      <div class="card-top">
+        <span class="repo">komo-market-dashboard-data</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">行情看板运行数据，含飞书/钉钉配置</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>JavaScript</span><span>5.1 MB</span><span>推送 2026-10-30</span>
+      </div>
+      <div class="tags"><span class="tag warn">含密钥，勿转公开</span></div>
+    </article></div>
+  </section>
+  <section class="cat" data-cat="创作与归档">
+    <div class="cat-head">
+      <span class="dot" style="background:#e879f9"></span>
+      <h2>创作与归档</h2><span class="count">4</span>
+      <span class="cat-desc">小说创作、项目索引与杂项存档</span>
+    </div>
+    <div class="grid">
+    <article class="card" data-name="GH-Handover" data-private="false" data-level="E">
+      <div class="card-top">
+        <span class="repo">GH-Handover</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">交接文档与在线看板</p>
+      <div class="lv" style="color:#fbbf24;border-color:#fbbf2444;background:#fbbf2414">E · 静态页</div>
+      <p class="how">直接打开 index.html，或用静态服务器托管</p>
+      <div class="bar"><i style="width:6%"></i></div>
+      <div class="meta">
+        <span>12 次提交</span><span>Python</span><span>999 KB</span><span>推送 2026-10-26</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="komo-project-index" data-private="false" data-level="E">
+      <div class="card-top">
+        <span class="repo">komo-project-index</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">全仓项目索引与看板（本仓库）</p>
+      <div class="lv" style="color:#fbbf24;border-color:#fbbf2444;background:#fbbf2414">E · 静态页</div>
+      <p class="how">直接打开 index.html，或用静态服务器托管</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>HTML</span><span>11 KB</span><span>推送 2026-10-30</span>
+      </div>
+      
+    </article>
+    <article class="card" data-name="komo-misc-archive" data-private="false" data-level="F">
+      <div class="card-top">
+        <span class="repo">komo-misc-archive</span>
+        <span class="badge public">公开</span>
+      </div>
+      <p class="desc">杂项归档：企划书、解包工具、数据导出</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>2 次提交</span><span>Python</span><span>11.6 MB</span><span>推送 2026-10-30</span>
+      </div>
+      <div class="tags"><span class="tag warn">公开仓含数据结构导出，复查</span></div>
+    </article>
+    <article class="card" data-name="novel-archive" data-private="true" data-level="F">
+      <div class="card-top">
+        <span class="repo">novel-archive</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">小说创作归档，两部原创与 InkAI</p>
+      <div class="lv" style="color:#94a3b8;border-color:#94a3b844;background:#94a3b814">F · 存档数据</div>
+      <p class="how">无需运行，按需查阅或复原</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>Python</span><span>51.7 MB</span><span>推送 2026-10-30</span>
+      </div>
+      
+    </article></div>
+  </section>
+  <section class="cat" data-cat="平台与工程">
+    <div class="cat-head">
+      <span class="dot" style="background:#fbbf24"></span>
+      <h2>平台与工程</h2><span class="count">1</span>
+      <span class="cat-desc">自用工作台与基础工程</span>
+    </div>
+    <div class="grid">
+    <article class="card" data-name="pm-workbench" data-private="true" data-level="B">
+      <div class="card-top">
+        <span class="repo">pm-workbench</span>
+        <span class="badge private">私有</span>
+      </div>
+      <p class="desc">项目管理、任务看板、服务监控平台</p>
+      <div class="lv" style="color:#38bdf8;border-color:#38bdf844;background:#38bdf814">B · 源码可跑</div>
+      <p class="how">clone 后 npm install &amp;&amp; npm start</p>
+      <div class="bar"><i style="width:3%"></i></div>
+      <div class="meta">
+        <span>1 次提交</span><span>JavaScript</span><span>1.6 MB</span><span>推送 2026-10-19</span>
+      </div>
+      <div class="tags"><span class="tag ">建议打 release</span></div>
+    </article></div>
+  </section>
+  <footer>
+    分级口径：<b>A</b> release 里有 exe/zip 成品 · <b>B</b> 有 package.json / requirements.txt 等标准入口 ·
+    <b>C</b> 含 skills/ 或 SKILL.md · <b>D</b> 独立脚本 · <b>E</b> 静态页 · <b>F</b> 无可执行内容。<br>
+    分级只反映「怎么打开它」，不评价代码质量。数据源：GitHub GraphQL + Releases API 实时查询，写入 <code>_repos.json</code>。
+  </footer>
 </div>
+<script>
+const q=document.getElementById('q');
+const chips=[...document.querySelectorAll('.chip')];
+const lkeys=[...document.querySelectorAll('.lkey')];
+let flt='all';
+function apply(){
+  const kw=q.value.trim().toLowerCase();
+  document.querySelectorAll('.card').forEach(c=>{
+    const t=(c.dataset.name+' '+c.querySelector('.desc').textContent).toLowerCase();
+    const okKw=!kw||t.includes(kw);
+    let okF=true;
+    if(flt==='private')okF=c.dataset.private==='true';
+    else if(flt==='public')okF=c.dataset.private==='false';
+    else if(flt!=='all')okF=c.dataset.level===flt;
+    c.classList.toggle('hide',!(okKw&&okF));
+  });
+  document.querySelectorAll('.cat').forEach(s=>{
+    s.classList.toggle('hide',![...s.querySelectorAll('.card')].some(c=>!c.classList.contains('hide')));
+  });
+}
+q.addEventListener('input',apply);
+chips.forEach(b=>b.addEventListener('click',()=>{
+  const f=b.dataset.filter;
+  chips.forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  flt=f;apply();
+}));
+lkeys.forEach(b=>b.addEventListener('click',()=>{
+  const f=b.dataset.level;
+  flt=(flt===f)?'all':f;
+  lkeys.forEach(x=>x.classList.toggle('on',x.dataset.level===flt));
+  chips.forEach(x=>x.classList.toggle('on',x.dataset.filter==='all'&&flt==='all'));
+  apply();
+}));
+</script>
 </body>
 </html>
